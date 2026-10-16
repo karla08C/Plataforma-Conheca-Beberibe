@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_tab" name="shell-type"/>
+  <title>Conheça Beberibe</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#4a5f7f",
+            "tertiary": "#1a5e88",
+            "on-tertiary-container": "#f4f8ff",
+            "surface-tint": "#9f411e",
+            "surface-variant": "#e4e2df",
+            "primary-fixed-dim": "#ffb59d",
+            "on-primary-container": "#fff5f3",
+            "tertiary-fixed-dim": "#93ccfd",
+            "secondary-fixed-dim": "#b2c8ec",
+            "surface-container-high": "#eae8e5",
+            "tertiary-fixed": "#cbe6ff",
+            "background": "#fbf9f6",
+            "on-primary-fixed": "#390c00",
+            "on-tertiary-fixed": "#001e30",
+            "surface-container": "#efeeeb",
+            "on-background": "#1b1c1a",
+            "surface-bright": "#fbf9f6",
+            "on-primary-fixed-variant": "#802a08",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#f5f3f0",
+            "inverse-primary": "#ffb59d",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e4e2df",
+            "primary": "#983c19",
+            "inverse-on-surface": "#f2f0ed",
+            "on-secondary-fixed-variant": "#324866",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "primary-container": "#b8532f",
+            "on-surface-variant": "#56423c",
+            "primary-fixed": "#ffdbd0",
+            "tertiary-container": "#3a77a3",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#30312f",
+            "secondary-fixed": "#d4e3ff",
+            "on-error": "#ffffff",
+            "on-secondary-fixed": "#021c38",
+            "surface": "#fbf9f6",
+            "on-surface": "#1b1c1a",
+            "on-secondary-container": "#495e7e",
+            "error": "#ba1a1a",
+            "secondary-container": "#c2d8fe",
+            "surface-dim": "#dbdad7",
+            "outline": "#8a726a",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#ddc0b8",
+            "on-tertiary-fixed-variant": "#004b72"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-lg": "2rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "margin-md": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-lg": "3.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Playfair Display"],
+            "display-mobile": ["Playfair Display"],
+            "display": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Playfair Display"],
+            "title-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["2.5rem", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-mobile": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display": ["3.5rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-md": ["0.875rem", { "lineHeight": "1.25", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["0.875rem", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "headline-md": ["1.75rem", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "title-md": ["1.125rem", { "lineHeight": "1.45", "fontWeight": "600" }],
+            "label-sm": ["0.75rem", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-md": ["1rem", { "lineHeight": "1.55", "fontWeight": "400" }],
+            "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.25", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-sm": ["1.25rem", { "lineHeight": "1.4", "fontWeight": "700" }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <!-- Top App Bar -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(184,83,47,0.06)] pt-safe">
+    <div class="h-20 px-gutter flex items-center justify-between gap-space-sm max-w-lg mx-auto">
+      <div class="flex items-center gap-space-sm min-w-0">
+        <img alt="Logo Conheça Beberibe" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1X6Ucd-0jMtU8pC9UgmlNadtBedYf24gR0J69_BBdK9hqPlS0RW2kzJi0yRKyQfSlBNxLECTSE9HZMqlZ5BftUqEpT4Goad2Ynt8qSxCqOwepxvw_SdLfURPCB-p39NvSJcTd3Q77_XeFF-AOJrlNqKcyoWStLBUWV67oo7zyVDlpw4qnBKr7THiGUtKoH970dg62pBTcopoW5BOKhekrhHY2zw8aOOeDkrirySxjAdThhfo9AAv01Mqg"/>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-1.5">
+            <span class="font-title-md text-title-md text-primary tracking-tight truncate">Conheça Beberibe</span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span>
+            <span class="font-label-sm text-label-sm text-secondary truncate">Explorar</span>
+          </div>
+          <div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+            <span class="material-symbols-outlined text-[14px] leading-none text-tertiary">waves</span>
+            <span class="truncate font-medium">30°C • Maré Baixa 0.4m às 14h30</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button id="btn-search-header" aria-label="Buscar no diretório" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </button>
+        <button id="btn-notifications" aria-label="Notificações e Alertas" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[22px]">notifications</span>
+          <span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+        </button>
+        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 cursor-pointer">
+          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex flex-col relative w-full px-gutter pt-20 pb-28 bg-surface flex-grow max-w-lg mx-auto">
+    <div class="flex flex-col w-full pb-6 space-y-6">
+      
+      <!-- Widget de Boas-vindas & Tábua de Marés -->
+      <section class="w-full bg-gradient-to-br from-tertiary via-tertiary-container to-secondary rounded-xl text-on-tertiary shadow-md p-space-md relative overflow-hidden">
+        <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-surface-container-lowest/10 blur-xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-1.5">
+              <span class="material-symbols-outlined text-[18px] text-tertiary-fixed">location_on</span>
+              <span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary-fixed">Litoral Leste do Ceará</span>
+            </div>
+            <div class="flex items-center space-x-1 bg-surface-container-lowest/15 px-2.5 py-1 rounded-full backdrop-blur-sm">
+              <span class="material-symbols-outlined text-[16px] text-primary-fixed">wb_sunny</span>
+              <span class="font-label-md text-label-md">30°C Ensolarado</span>
+            </div>
+          </div>
+          <div>
+            <h1 class="font-headline-md text-headline-md tracking-tight leading-tight text-surface">
+              Descubra os encantos de Beberibe
+            </h1>
+            <p class="font-body-sm text-body-sm text-tertiary-fixed/90 mt-0.5">
+              Falésias esculpidas pelo vento, lagoas cristalinas e hospitalidade cearense.
+            </p>
+          </div>
+          
+          <!-- Tábua de Marés em Destaque -->
+          <div class="bg-surface-container-lowest/15 backdrop-blur-md rounded-lg p-space-sm flex items-center justify-between gap-2">
+            <div class="flex items-center space-x-2.5 min-w-0">
+              <div class="w-9 h-9 rounded-full bg-surface-container-lowest/20 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">waves</span>
+              </div>
+              <div class="min-w-0">
+                <p class="font-label-sm text-label-sm text-tertiary-fixed font-bold leading-none">Tábua de Marés • Janela Ideal</p>
+                <p class="font-body-sm text-body-sm text-surface font-medium truncate mt-0.5">
+                  Maré Baixa no Labirinto (0.3m às 13:45)
+                </p>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-surface-tint shrink-0 text-[18px]">verified</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Busca Inteligente e Filtro -->
+      <section class="w-full space-y-3">
+        <div class="flex items-center space-x-2">
+          <div class="relative flex-1">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-primary text-[22px]">search</span>
+            <input id="search-input" class="w-full h-12 pl-11 pr-4 bg-surface-container-lowest rounded-xl font-body-md text-body-md text-on-surface placeholder-outline shadow-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all" placeholder="Buscar praias, barracas, passeios de buggy..." type="text"/>
+          </div>
+          <button id="btn-filters" aria-label="Abrir filtros avançados" class="w-12 h-12 shrink-0 bg-surface-container rounded-xl flex items-center justify-center text-on-surface hover:bg-surface-container-high active:scale-95 transition-all shadow-sm">
+            <span class="material-symbols-outlined text-[22px]">tune</span>
+          </button>
+        </div>
+
+        <!-- Tags Horizontais de Categoria -->
+        <div class="flex overflow-x-auto space-x-2 pb-1 scrollbar-none no-scrollbar -mx-gutter px-gutter" id="category-pills">
+          <button class="category-pill shrink-0 h-9 px-4 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center space-x-1 shadow-sm" data-category="todas">
+            <span class="material-symbols-outlined text-[16px]">check</span>
+            <span>Todas</span>
+          </button>
+          <button class="category-pill shrink-0 h-9 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-category="praias">
+            Praias &amp; Falésias
+          </button>
+          <button class="category-pill shrink-0 h-9 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-category="buggy">
+            Passeio de Buggy
+          </button>
+          <button class="category-pill shrink-0 h-9 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-category="barracas">
+            Barracas de Praia
+          </button>
+          <button class="category-pill shrink-0 h-9 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-category="pousadas">
+            Pousadas
+          </button>
+          <button class="category-pill shrink-0 h-9 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-category="gastronomia">
+            Peixe &amp; Frutos do Mar
+          </button>
+          <button class="category-pill shrink-0 h-9 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-category="artesanato">
+            Rendas &amp; Artesanato
+          </button>
+        </div>
+      </section>
+
+      <!-- Seletor Rápido de Distrito -->
+      <section class="w-full space-y-2">
+        <div class="flex items-center justify-between">
+          <h2 class="font-title-md text-title-md text-on-surface">Explorar por Distrito</h2>
+          <span class="font-label-sm text-label-sm text-secondary font-medium">7 localidades</span>
+        </div>
+        <div class="flex overflow-x-auto space-x-2 pb-1 no-scrollbar -mx-gutter px-gutter" id="district-pills">
+          <button class="district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-highest text-on-surface-variant font-label-md text-label-md" data-district="todos">
+            Todos
+          </button>
+          <button class="district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-primary-fixed text-on-primary-fixed font-label-md text-label-md shadow-sm" data-district="morro-branco">
+            Morro Branco
+          </button>
+          <button class="district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container" data-district="praia-das-fontes">
+            Praia das Fontes
+          </button>
+          <button class="district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container" data-district="lagoa-do-uruau">
+            Lagoa do Uruaú
+          </button>
+          <button class="district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container" data-district="centro">
+            Centro
+          </button>
+          <button class="district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container" data-district="paripueira">
+            Paripueira
+          </button>
+          <button class="district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container" data-district="sucatinga">
+            Sucatinga
+          </button>
+        </div>
+      </section>
+
+      <!-- Destaques Imperdíveis (Carrossel Horizontal) -->
+      <section class="w-full space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-title-md text-title-md text-on-surface">Destaques Imperdíveis</h2>
+            <p class="font-body-sm text-body-sm text-secondary">Riquezas naturais e pontos turísticos icônicos</p>
+          </div>
+          <a class="font-label-md text-label-md text-primary flex items-center hover:underline" href="#">
+            Ver mais
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+          </a>
+        </div>
+        <div class="flex overflow-x-auto space-x-4 pb-2 -mx-gutter px-gutter no-scrollbar snap-x snap-mandatory">
+          <!-- Card 1: Monumento Natural das Falésias -->
+          <article class="w-72 shrink-0 snap-start bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col justify-between">
+            <div class="relative w-full h-44">
+              <img class="w-full h-full object-cover" data-alt="Falésias de Morro Branco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0UjitalrdCuR5OoHur9CNStux_kQc6Hnh6uNOm1Yfu0c_H1iHxl2yj4AMSKPvwQG6dQeQTo2Muy_R5eEKGco6AffMWa5mUcFAoVPZFJje_o6Bzd3F9KGG39QZB1PZa1VccUAS_gGEUNmGQagBIZdVjWKYfGhB9rYrKHb-e1nHl31i-yEuYV-tWCwdX0DVvuO1M51UVPj5pYL2yrDToNqwAxFT56GA5SU_kBxzJtK2B-KiSnjxWCg"/>
+              <span class="absolute top-2.5 left-2.5 bg-primary/90 backdrop-blur-sm text-on-primary font-label-sm text-label-sm px-2.5 py-1 rounded-full shadow-sm">
+                Preservação Ambiental
+              </span>
+              <button class="btn-favorite absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary active:scale-90 transition-transform">
+                <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+              </button>
+            </div>
+            <div class="p-space-md flex flex-col space-y-2 flex-grow">
+              <div>
+                <span class="font-label-sm text-label-sm text-secondary">Morro Branco</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight mt-0.5">
+                  Monumento Natural das Falésias
+                </h3>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                Labirinto natural escavado pela erosão com areias de 12 tonalidades minerais preservadas.
+              </p>
+              <div class="pt-2 flex items-center justify-between text-secondary font-label-sm text-label-sm mt-auto">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-primary">near_me</span> 4,5 km do centro
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-primary">schedule</span> 1h30 a 2h
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Gruta da Mãe D'Água -->
+          <article class="w-72 shrink-0 snap-start bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col justify-between">
+            <div class="relative w-full h-44">
+              <img class="w-full h-full object-cover" data-alt="Praia das Fontes e Gruta da Mãe D'Água" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTGwtflm3cJe6KLtRDkJHOBytu0Toxm9PF97zd6-ChlESKXe-oijuWCB9L6ZRbIUD22-EZB_xugU0yHsgyZ5wMB0SZ2b3mIfL73BpK34wM_gwVePIQUivNeRW7yjaq6YWFoz9-hIz73lQeBJqQ6T-y9vmlGLljOMd8ZX1yNigEOAun9xrCMfAzReTCD7fKUUzsb6rMIfxPT0_mWPyImz6N-VgpgV4GMEpl3KB5uiJiZrf4K6rowla4"/>
+              <span class="absolute top-2.5 left-2.5 bg-secondary/90 backdrop-blur-sm text-on-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-full shadow-sm">
+                Pé na areia
+              </span>
+              <button class="btn-favorite absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary active:scale-90 transition-transform">
+                <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+              </button>
+            </div>
+            <div class="p-space-md flex flex-col space-y-2 flex-grow">
+              <div>
+                <span class="font-label-sm text-label-sm text-secondary">Praia das Fontes</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight mt-0.5">
+                  Gruta da Mãe D'Água &amp; Bicas
+                </h3>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                Bicas de água doce potável vertendo direto das falésias e grutas marítimas lendárias.
+              </p>
+              <div class="pt-2 flex items-center justify-between text-secondary font-label-sm text-label-sm mt-auto">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-primary">near_me</span> 6 km do centro
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-primary">schedule</span> Livre
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Lagoa do Uruaú -->
+          <article class="w-72 shrink-0 snap-start bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col justify-between">
+            <div class="relative w-full h-44">
+              <img class="w-full h-full object-cover" data-alt="Lagoa do Uruaú" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3qESsSBzL5_mBQMF0e-XOi7B1-XVOPY_Tm_-4NKa-DPmK1zxAtZmJi0-yO0sgtqTSEbnRjaju2IyrbV3oxV19UW9ljiiLsPjPjS7_dk8Rz6fCJ3S8S9ddI36mphz9wyKRe94jz6H8K2dSECZlmJApQjJS_NxsmjkYirCsxN5rtq-hHrfBTuGGrdRipoxRT0TGDQhaMND5oI-XfAiFodc0Tls4lE1uTuqlTVDPTT2orE02flf4c44u"/>
+              <span class="absolute top-2.5 left-2.5 bg-tertiary/90 backdrop-blur-sm text-on-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-full shadow-sm">
+                Água Doce &amp; Lazer
+              </span>
+              <button class="btn-favorite absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary active:scale-90 transition-transform">
+                <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+              </button>
+            </div>
+            <div class="p-space-md flex flex-col space-y-2 flex-grow">
+              <div>
+                <span class="font-label-sm text-label-sm text-secondary">Uruaú</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight mt-0.5">
+                  Lagoa do Uruaú
+                </h3>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                A maior lagoa do Ceará, ideal para esportes náuticos, passeios de stand-up e barracas à beira-d'água.
+              </p>
+              <div class="pt-2 flex items-center justify-between text-secondary font-label-sm text-label-sm mt-auto">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-primary">near_me</span> 18 km do centro
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-primary">schedule</span> Dia inteiro
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Banner de Roteiros Prontos -->
+      <section class="w-full rounded-xl bg-secondary-container text-on-secondary-container p-space-md shadow-sm relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-1 z-10">
+          <div class="inline-flex items-center space-x-1 bg-surface-container-lowest/80 text-secondary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full">
+            <span class="material-symbols-outlined text-[14px]">map</span>
+            <span>Planejamento Fácil</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface">Roteiros Prontos de 1 a 3 dias</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+            Roteiros otimizados com maré, gastronomia caiçara e pontos para o pôr do sol nas dunas.
+          </p>
+        </div>
+        <a class="h-11 px-5 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center space-x-1.5 shadow-sm active:scale-95 transition-transform z-10 shrink-0" href="#">
+          <span>Explorar Roteiros</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </section>
+
+      <!-- Seção Comércio Local em Evidência -->
+      <section class="w-full space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-title-md text-title-md text-on-surface">Comércio Local em Evidência</h2>
+            <p class="font-body-sm text-body-sm text-secondary">Apoie os prestadores e empreendedores locais</p>
+          </div>
+          <a class="font-label-md text-label-md text-primary flex items-center hover:underline" href="#">
+            Ver guia
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+          </a>
+        </div>
+        
+        <div class="space-y-3" id="commerces-list">
+          <!-- Item 1: Barraca do Carlinhos -->
+          <div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex gap-3 items-center hover:shadow-md transition-shadow">
+            <img class="w-24 h-24 rounded-lg object-cover shrink-0" data-alt="Prato regional de peixe frito" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVhdQmOeBLXzWtXqBjjRtZZ_T_fyjjqh_Ea2F37POxjvlD69ZVRhxo4cqduPPzWeDjx52S04i3nsPVAMJd1G9vrZEB6Nb7IzJ6YYMj6w6XVypQjqA-bZytd9Z3f9C4F0aPnwrnp29_13Y21iNaplImID23ux6eoofmfih5XI1ox8wSjM0l3vLlNJYwMpAn6nleZaZdbbopHHmALH1ODA-T-LZ2OdbF6YNkiXrIJTRFjJbamWfUxfoY"/>
+            <div class="flex flex-col flex-1 min-w-0 justify-between">
+              <div>
+                <div class="flex items-center space-x-1">
+                  <span class="font-label-sm text-label-sm text-primary font-bold">Barraca de Praia</span>
+                  <span class="material-symbols-outlined text-tertiary text-[16px]">verified</span>
+                </div>
+                <h4 class="font-title-md text-title-md text-on-surface truncate">Barraca do Carlinhos</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Peixada Cearense &amp; Caranguejada fresca</p>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="font-label-sm text-label-sm text-secondary">Praia de Morro Branco</span>
+                <a class="h-8 px-3 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-sm text-label-sm flex items-center space-x-1 transition-colors" href="https://wa.me/5585999999999" target="_blank" rel="noopener">
+                  <span class="material-symbols-outlined text-[14px]">chat</span>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Buggy Tour Falésias Credenciado -->
+          <div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex gap-3 items-center hover:shadow-md transition-shadow">
+            <img class="w-24 h-24 rounded-lg object-cover shrink-0" data-alt="Passeio de buggy pelas dunas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLKi4m80ob-9WIcUZBht9Qyzw58mqUpz3tWIPU-xaFqQ0pDZ6vwixJx_GG97XjxDLUobQlawdssPolmxO1iFksenPAhTNjAZEEGHxBw-kCleD-oqEQ5cmZK1wAnaov7Ea0pGj-yx3PLkEYUQpu012BfxwwwFTZ5hUuEs4xs6N47JUcMiYwlrdLKajSIdWPZFvs-BhMW4rc_9BXO4emJtssCT27s44Cm_qH8gl8pJaXod4BfCfiWBty"/>
+            <div class="flex flex-col flex-1 min-w-0 justify-between">
+              <div>
+                <div class="flex items-center space-x-1">
+                  <span class="font-label-sm text-label-sm text-tertiary font-bold">Bugueiro Credenciado</span>
+                  <span class="material-symbols-outlined text-tertiary text-[16px]">verified</span>
+                </div>
+                <h4 class="font-title-md text-title-md text-on-surface truncate">Buggy Tour Falésias</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Associação Oficial de Beberibe • Seguro incluso</p>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="font-label-sm text-label-sm text-secondary">Ponto Central / Saída Rápida</span>
+                <a class="h-8 px-3 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm flex items-center space-x-1 shadow-sm active:scale-95 transition-transform" href="https://wa.me/5585999999999" target="_blank" rel="noopener">
+                  <span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                  <span>Reservar</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Pousada Flamboyant das Fontes -->
+          <div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex gap-3 items-center hover:shadow-md transition-shadow">
+            <img class="w-24 h-24 rounded-lg object-cover shrink-0" data-alt="Pousada tropical com redes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc7uf7OwWJwCOO2u2kaP98LZFnSSvk6TQHjJw4iQVWsU3FMSPxgB8KdaBWbgiSlVFAahNGi7ecDWa74YundqsN9E9Cg4fEqsw0QaVaLJXHMl5KoUiayYgb0nq82mxsTwVxMbmiNNso_vpeVVP6MhxFeehniasAr5woxE5DgZfO4STxrWPJohtabnum-ilhUB1kYefaZsz8DdY8FBbzlPL-xsLwEAiRbsACtAEyTPhjNKe3XlRMBP0a"/>
+            <div class="flex flex-col flex-1 min-w-0 justify-between">
+              <div>
+                <div class="flex items-center space-x-1">
+                  <span class="font-label-sm text-label-sm text-secondary font-bold">Pousada &amp; Café</span>
+                  <span class="material-symbols-outlined text-primary text-[14px]">star</span>
+                  <span class="font-label-sm text-label-sm font-bold text-on-surface">4.9</span>
+                  <span class="font-label-sm text-label-sm text-outline">(128)</span>
+                </div>
+                <h4 class="font-title-md text-title-md text-on-surface truncate">Pousada Flamboyant</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Pé na areia com café artesanal regional</p>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="font-label-sm text-label-sm text-secondary">Praia das Fontes</span>
+                <a class="h-8 px-3 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-sm text-label-sm flex items-center space-x-1 transition-colors" href="https://wa.me/5585999999999" target="_blank" rel="noopener">
+                  <span class="material-symbols-outlined text-[14px]">call</span>
+                  <span>Contatar</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rodapé Educativo & Consciência Ambiental -->
+      <section class="w-full bg-surface-container-low rounded-xl p-space-md space-y-2.5">
+        <div class="flex items-center space-x-2 text-primary">
+          <span class="material-symbols-outlined text-[22px]">eco</span>
+          <h3 class="font-label-md text-label-md uppercase tracking-wider font-bold">Preserve Nosso Patrimônio Natural</h3>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          O Monumento Natural das Falésias de Beberibe é uma unidade de conservação integral. É expressamente proibido retirar areias coloridas das paredes das falésias, riscar ou degradar as estruturas rochosas e descartar resíduos plásticos nas praias e lagoas.
+        </p>
+        <div class="flex items-center gap-3 pt-1 text-secondary font-label-sm text-label-sm">
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">delete</span> Leve seu lixo de volta
+          </span>
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">handshake</span> Apoie os guias credenciados
+          </span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(22,45,74,0.06)]" data-active-classes="text-primary font-bold">
+    <div class="flex items-center justify-around h-16 px-space-xs max-w-lg mx-auto">
+      <a aria-current="page" class="nav-item flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-12 transition-colors text-primary font-bold" data-path="explorar" href="#explorar">
+        <span class="material-symbols-outlined text-[22px]">explore</span>
+        <span class="font-label-sm text-label-sm">Explorar</span>
+      </a>
+      <a class="nav-item flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-12 text-on-surface-variant hover:text-primary transition-colors" data-path="comercios" href="#comercios">
+        <span class="material-symbols-outlined text-[22px]">storefront</span>
+        <span class="font-label-sm text-label-sm">Comércios</span>
+      </a>
+      <a class="nav-item flex flex-col items-center justify-center -mt-5 min-w-[56px] h-14 group" data-path="cadastrar" href="#cadastrar">
+        <div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_4px_12px_rgba(152,60,25,0.35)] active:scale-95 transition-transform group-hover:scale-105">
+          <span class="material-symbols-outlined text-[26px]">add</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-primary mt-1">Cadastrar</span>
+      </a>
+      <a class="nav-item flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-12 text-on-surface-variant hover:text-primary transition-colors" data-path="roteiros" href="#roteiros">
+        <span class="material-symbols-outlined text-[22px]">alt_route</span>
+        <span class="font-label-sm text-label-sm">Roteiros</span>
+      </a>
+      <a class="nav-item flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-12 text-on-surface-variant hover:text-primary transition-colors" data-path="agenda" href="#agenda">
+        <span class="material-symbols-outlined text-[22px]">calendar_month</span>
+        <span class="font-label-sm text-label-sm">Agenda</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Script para interatividade básica -->
+  <script>
+    // Alternar favoritos (corações)
+    document.querySelectorAll('.btn-favorite').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon.textContent.trim() === 'favorite_border') {
+          icon.textContent = 'favorite';
+          icon.classList.add('text-primary');
+        } else {
+          icon.textContent = 'favorite_border';
+        }
+      });
+    });
+
+    // Filtros de Categoria (Tabs)
+    const categoryPills = document.querySelectorAll('.category-pill');
+    categoryPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        categoryPills.forEach(p => {
+          p.className = 'category-pill shrink-0 h-9 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors';
+          const check = p.querySelector('.material-symbols-outlined');
+          if (check) check.remove();
+        });
+        pill.className = 'category-pill shrink-0 h-9 px-4 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center space-x-1 shadow-sm';
+        pill.insertAdjacentHTML('afterbegin', '<span class="material-symbols-outlined text-[16px]">check</span>');
+      });
+    });
+
+    // Filtros de Distrito
+    const districtPills = document.querySelectorAll('.district-pill');
+    districtPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        districtPills.forEach(p => {
+          p.className = 'district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container';
+        });
+        pill.className = 'district-pill shrink-0 px-3.5 py-1.5 rounded-lg bg-primary-fixed text-on-primary-fixed font-label-md text-label-md shadow-sm';
+      });
+    });
+
+    // Bottom Navigation Active State
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      if (item.dataset.path === 'cadastrar') return;
+      item.addEventListener('click', (e) => {
+        navItems.forEach(n => {
+          if (n.dataset.path !== 'cadastrar') {
+            n.className = 'nav-item flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-12 text-on-surface-variant hover:text-primary transition-colors';
+            n.removeAttribute('aria-current');
+          }
+        });
+        item.className = 'nav-item flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-12 transition-colors text-primary font-bold';
+        item.setAttribute('aria-current', 'page');
+      });
+    });
+  </script>
+</body>
+</html>
