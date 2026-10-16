@@ -30,11 +30,11 @@ export function Header({
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(184,83,47,0.06)] border-b border-outline-variant/30 pt-safe select-none">
-      <div className="h-18 sm:h-20 px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-4 max-w-6xl mx-auto">
+      <div className="h-20 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 max-w-6xl mx-auto">
         {/* Logo & Marca */}
         <div
           onClick={() => onTabChange("explorar")}
-          className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1 md:flex-initial cursor-pointer group active:scale-98 transition-transform"
+          className="flex items-center gap-3 min-w-0 flex-1 md:flex-initial cursor-pointer group active:scale-98 transition-transform"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

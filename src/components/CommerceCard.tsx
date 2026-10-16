@@ -17,9 +17,9 @@ export function CommerceCard({ commerce, onSelect }: CommerceCardProps) {
   return (
     <div
       onClick={() => onSelect && onSelect(commerce)}
-      className="bg-surface-container-lowest rounded-2xl p-3.5 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300 flex gap-3 sm:gap-4.5 items-center border border-outline-variant/30 group cursor-pointer"
+      className="bg-surface-container-lowest rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300 flex gap-4 sm:gap-4.5 items-center border border-outline-variant/30 group cursor-pointer"
     >
-      <div className="w-20 h-20 sm:w-26 sm:h-26 rounded-2xl overflow-hidden bg-surface-container shrink-0">
+      <div className="w-24 h-24 sm:w-26 sm:h-26 rounded-2xl overflow-hidden bg-surface-container shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={commerce.image}
@@ -28,7 +28,7 @@ export function CommerceCard({ commerce, onSelect }: CommerceCardProps) {
         />
       </div>
 
-      <div className="flex flex-col flex-1 min-w-0 justify-between h-full py-0.5 space-y-1">
+      <div className="flex flex-col flex-1 min-w-0 justify-between h-full py-0.5 space-y-1.5">
         <div>
           <div className="flex items-center space-x-1.5 flex-wrap gap-y-1">
             <span className="font-label-sm text-label-sm text-primary font-bold text-xs sm:text-sm">
@@ -60,7 +60,7 @@ export function CommerceCard({ commerce, onSelect }: CommerceCardProps) {
           </p>
         </div>
 
-        <div className="flex items-center justify-between pt-1.5 sm:pt-2 gap-2">
+        <div className="flex items-center justify-between pt-2.5 gap-2">
           <span className="font-label-sm text-label-sm text-secondary truncate font-medium text-xs sm:text-sm">
             {commerce.district}
           </span>
@@ -70,7 +70,7 @@ export function CommerceCard({ commerce, onSelect }: CommerceCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="h-9 sm:h-10 px-3 sm:px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-label-sm text-label-sm font-bold flex items-center space-x-1 sm:space-x-1.5 shadow-sm shadow-emerald-700/20 active:scale-95 transition-all shrink-0 cursor-pointer text-xs sm:text-sm"
+            className="h-10 px-3.5 sm:px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-label-sm text-label-sm font-bold flex items-center space-x-1.5 shadow-sm shadow-emerald-700/20 active:scale-95 transition-all shrink-0 cursor-pointer text-xs sm:text-sm"
           >
             <Icon name={commerce.actionIcon || "chat"} size={15} className="text-white" />
             <span>{commerce.actionText || "WhatsApp"}</span>

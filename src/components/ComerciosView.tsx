@@ -35,7 +35,7 @@ export function ComerciosView({
   return (
     <div className="flex flex-col space-y-6 sm:space-y-8 animate-fadeIn">
       {/* Top Banner de Comércios */}
-      <div className="bg-gradient-to-r from-primary via-primary-container to-secondary text-on-primary rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm space-y-4 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-primary via-primary-container to-secondary text-on-primary rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm space-y-4 relative overflow-hidden">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed font-bold bg-black/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full w-fit">
             Guia Comercial &amp; Serviços
@@ -75,7 +75,7 @@ export function ComerciosView({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Buscar comércio, peixada, bugueiro, pousada..."
-          className="w-full h-12 sm:h-14 pl-12 pr-4 bg-surface-container-lowest rounded-2xl font-body-md text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm text-sm sm:text-base"
+          className="w-full h-13 sm:h-14 pl-12.5 pr-4 bg-surface-container-lowest rounded-2xl font-body-md text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm text-sm sm:text-base"
         />
       </div>
 
@@ -87,7 +87,7 @@ export function ComerciosView({
             <button
               key={cat.id}
               onClick={() => setSelectedCat(cat.id)}
-              className={`shrink-0 h-9 sm:h-10 px-3.5 sm:px-4.5 rounded-full font-label-md text-label-md transition-all cursor-pointer text-xs sm:text-sm ${
+              className={`shrink-0 h-10 sm:h-11 px-4 sm:px-5 rounded-full font-label-md text-label-md transition-all cursor-pointer text-xs sm:text-sm ${
                 active
                   ? "bg-primary text-on-primary font-bold shadow-sm"
                   : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
@@ -107,7 +107,7 @@ export function ComerciosView({
             <button
               key={dist.id}
               onClick={() => setSelectedDist(dist.id)}
-              className={`shrink-0 h-8.5 sm:h-9.5 px-3.5 sm:px-4 rounded-xl font-label-md text-label-md transition-all cursor-pointer text-xs sm:text-sm flex items-center justify-center ${
+              className={`shrink-0 h-9 sm:h-10 px-4 sm:px-4.5 rounded-xl font-label-md text-label-md transition-all cursor-pointer text-xs sm:text-sm flex items-center justify-center ${
                 active
                   ? "bg-primary-fixed text-on-primary-fixed font-bold shadow-sm"
                   : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container"
@@ -138,7 +138,7 @@ export function ComerciosView({
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4.5 lg:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
             {filtered.map((item) => (
               <CommerceCard key={item.id} commerce={item} />
             ))}

@@ -18,7 +18,7 @@ export function BottomNav({
 }: BottomNavProps) {
   return (
     <nav className="md:hidden fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-4px_16px_rgba(22,45,74,0.08)] border-t border-outline-variant/30 select-none">
-      <div className="flex items-center justify-around h-16 px-space-xs max-w-lg mx-auto">
+      <div className="flex items-center justify-around h-16 px-3 sm:px-4 max-w-lg mx-auto">
         {/* Explorar */}
         <button
           onClick={() => onTabChange("explorar")}

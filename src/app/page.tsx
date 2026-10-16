@@ -160,10 +160,10 @@ export default function HomePage() {
       />
 
       {/* Main Container Responsivo: se adapta a mobile (100%), tablet e desktop (max-w-6xl) */}
-      <main className="flex flex-col relative w-full px-3.5 sm:px-6 lg:px-8 pt-22 sm:pt-26 md:pt-28 pb-28 sm:pb-32 md:pb-16 bg-surface flex-grow max-w-6xl mx-auto overflow-x-hidden">
+      <main className="flex flex-col relative w-full px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-32 sm:pb-36 md:pb-20 bg-surface flex-grow max-w-6xl mx-auto overflow-x-hidden">
         {/* ABA: EXPLORAR */}
         {activeTab === "explorar" && (
-          <div className="flex flex-col w-full space-y-7 sm:space-y-10 lg:space-y-12 animate-fadeIn">
+          <div className="flex flex-col w-full space-y-8 sm:space-y-12 lg:space-y-16 animate-fadeIn">
             {/* Widget de Boas-vindas & Tábua de Marés */}
             <TideWidget />
 
@@ -192,7 +192,7 @@ export default function HomePage() {
             <ItineraryBanner onExploreClick={() => setActiveTab("roteiros")} />
 
             {/* Comércio Local em Evidência (Grid Responsivo de 3 colunas) */}
-            <section className="w-full space-y-4 sm:space-y-6">
+            <section className="w-full space-y-5 sm:space-y-6">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="font-title-md text-title-md text-on-surface font-bold text-xl sm:text-2xl">
@@ -211,7 +211,7 @@ export default function HomePage() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 lg:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
                 {filteredCommerces.slice(0, 6).map((commerce) => (
                   <CommerceCard key={commerce.id} commerce={commerce} />
                 ))}
