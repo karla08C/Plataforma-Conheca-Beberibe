@@ -48,7 +48,7 @@ export function HighlightsCarousel({
       </div>
 
       {/* Grid responsivo */}
-      <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 pb-2 md:pb-0 -mx-gutter md:mx-0 px-gutter md:px-0 no-scrollbar snap-x snap-mandatory">
+      <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar snap-x snap-mandatory">
         {highlights.map((item) => {
           const isFavorite = favorites.includes(item.id);
 
@@ -63,7 +63,7 @@ export function HighlightsCarousel({
             <article
               key={item.id}
               onClick={() => onSelectAttraction(item)}
-              className="w-80 md:w-auto shrink-0 snap-start bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between cursor-pointer border border-outline-variant/30 group active:scale-[0.99]"
+              className="w-[min(20rem,82vw)] sm:w-auto shrink-0 snap-start bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between cursor-pointer border border-outline-variant/30 group active:scale-[0.99]"
             >
               <div className="relative w-full h-52 sm:h-56 overflow-hidden bg-surface-container">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

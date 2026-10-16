@@ -13,10 +13,10 @@ export function RoteirosView() {
   return (
     <div className="flex flex-col space-y-6 sm:space-y-8 animate-fadeIn select-none">
       {/* Header do Roteiro */}
-      <div className="bg-gradient-to-br from-secondary via-secondary to-tertiary text-on-secondary rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm space-y-3">
+      <div className="bg-gradient-to-br from-secondary via-secondary to-tertiary text-on-secondary rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm space-y-3">
         <div className="flex items-center space-x-2">
           <Icon name="alt_route" size={20} className="text-secondary-fixed" />
-          <span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed font-bold">
+          <span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed font-bold text-xs sm:text-sm">
             Roteiros Especializados
           </span>
         </div>
@@ -29,32 +29,32 @@ export function RoteirosView() {
       </div>
 
       {/* Layout de Duas Colunas no Desktop */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-start">
         {/* Seletor de Roteiros */}
         <div className="lg:col-span-4 space-y-3">
           <h3 className="font-title-md text-title-md text-on-surface font-bold text-lg">
             Escolha seu Tempo
           </h3>
 
-          <div className="grid grid-cols-3 lg:grid-cols-1 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5 sm:gap-3">
             {ITINERARIES.map((it) => {
               const active = it.id === selectedItineraryId;
               return (
                 <button
                   key={it.id}
                   onClick={() => setSelectedItineraryId(it.id)}
-                  className={`p-4 rounded-2xl flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-200 cursor-pointer active:scale-95 border ${
+                  className={`p-3.5 sm:p-4 rounded-2xl flex flex-col items-start text-left transition-all duration-200 cursor-pointer active:scale-95 border ${
                     active
                       ? "bg-primary text-on-primary border-primary shadow-md shadow-primary/20 font-bold ring-2 ring-primary/40 ring-offset-2 ring-offset-surface"
                       : "bg-surface-container-lowest text-on-surface border-outline-variant/30 hover:bg-surface-container hover:border-outline-variant/60 shadow-xs"
                   }`}
                 >
-                  <div className="flex items-center space-x-2">
-                    <span className="font-label-md text-label-md uppercase tracking-wider">
+                  <div className="flex items-center space-x-2 w-full justify-between sm:justify-start">
+                    <span className="font-label-md text-label-md uppercase tracking-wider text-sm sm:text-base font-bold">
                       {it.days === 1 ? "1 Dia" : `${it.days} Dias`}
                     </span>
                     <span
-                      className={`text-[12px] px-2 py-0.5 rounded-full font-semibold ${
+                      className={`text-[11px] sm:text-[12px] px-2 py-0.5 rounded-full font-semibold ${
                         active
                           ? "bg-white/20 text-white"
                           : "bg-surface-container text-secondary"
@@ -63,7 +63,7 @@ export function RoteirosView() {
                       {it.days === 1 ? "Essencial" : it.days === 2 ? "Mar & Lagoa" : "Imersão"}
                     </span>
                   </div>
-                  <span className="font-body-sm text-body-sm text-[13px] opacity-90 mt-1 line-clamp-1">
+                  <span className="font-body-sm text-body-sm text-xs sm:text-[13px] opacity-90 mt-1 line-clamp-1">
                     {it.tagline}
                   </span>
                 </button>

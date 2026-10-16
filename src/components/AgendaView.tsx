@@ -17,10 +17,10 @@ export function AgendaView() {
   return (
     <div className="flex flex-col space-y-6 sm:space-y-8 animate-fadeIn select-none">
       {/* Banner da Agenda */}
-      <div className="bg-gradient-to-br from-tertiary via-tertiary-container to-secondary text-on-tertiary rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm space-y-3">
+      <div className="bg-gradient-to-br from-tertiary via-tertiary-container to-secondary text-on-tertiary rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm space-y-3">
         <div className="flex items-center space-x-2">
           <Icon name="calendar_month" size={20} className="text-tertiary-fixed" />
-          <span className="font-label-sm text-label-sm uppercase tracking-wider text-tertiary-fixed font-bold">
+          <span className="font-label-sm text-label-sm uppercase tracking-wider text-tertiary-fixed font-bold text-xs sm:text-sm">
             Agenda &amp; Marés
           </span>
         </div>
@@ -36,7 +36,7 @@ export function AgendaView() {
       <div className="flex lg:hidden bg-surface-container rounded-2xl p-1 gap-1 border border-outline-variant/30">
         <button
           onClick={() => setFilterType("todos")}
-          className={`flex-1 py-2.5 rounded-xl font-label-md text-label-md transition-all duration-200 cursor-pointer active:scale-95 ${
+          className={`flex-1 py-2 sm:py-2.5 rounded-xl font-label-md text-label-md transition-all duration-200 cursor-pointer active:scale-95 text-xs sm:text-sm ${
             filterType === "todos"
               ? "bg-surface-container-lowest text-primary font-bold shadow-sm"
               : "text-on-surface-variant hover:text-on-surface"
@@ -46,7 +46,7 @@ export function AgendaView() {
         </button>
         <button
           onClick={() => setFilterType("eventos")}
-          className={`flex-1 py-2.5 rounded-xl font-label-md text-label-md transition-all duration-200 cursor-pointer active:scale-95 ${
+          className={`flex-1 py-2 sm:py-2.5 rounded-xl font-label-md text-label-md transition-all duration-200 cursor-pointer active:scale-95 text-xs sm:text-sm ${
             filterType === "eventos"
               ? "bg-surface-container-lowest text-primary font-bold shadow-sm"
               : "text-on-surface-variant hover:text-on-surface"
@@ -56,7 +56,7 @@ export function AgendaView() {
         </button>
         <button
           onClick={() => setFilterType("mares")}
-          className={`flex-1 py-2.5 rounded-xl font-label-md text-label-md transition-all duration-200 cursor-pointer active:scale-95 ${
+          className={`flex-1 py-2 sm:py-2.5 rounded-xl font-label-md text-label-md transition-all duration-200 cursor-pointer active:scale-95 text-xs sm:text-sm ${
             filterType === "mares"
               ? "bg-surface-container-lowest text-primary font-bold shadow-sm"
               : "text-on-surface-variant hover:text-on-surface"
@@ -67,7 +67,7 @@ export function AgendaView() {
       </div>
 
       {/* Grade Responsiva de Duas Colunas no Desktop */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 items-start">
         {/* Tábua de Marés */}
         {(filterType === "todos" || filterType === "mares") && (
           <section className="space-y-4">
@@ -84,21 +84,21 @@ export function AgendaView() {
                   key={i}
                   className="bg-surface-container-lowest rounded-2xl p-4 sm:p-5 border border-outline-variant/30 shadow-sm flex flex-col space-y-2.5 hover:shadow-md transition-shadow"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
                     <span className="font-headline-sm text-headline-sm text-on-surface font-bold text-base sm:text-lg">
                       {tide.day}
                     </span>
-                    <span className="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full font-label-sm text-label-sm font-semibold">
+                    <span className="bg-tertiary/10 text-tertiary px-2.5 sm:px-3 py-1 rounded-full font-label-sm text-label-sm font-semibold text-xs sm:text-sm">
                       Janela Ideal: {tide.ideal}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-3 text-on-surface-variant font-body-sm text-sm pt-2 border-t border-surface-container">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-on-surface-variant font-body-sm text-xs sm:text-sm pt-2 border-t border-surface-container">
                     <div className="flex items-center space-x-2 text-secondary">
-                      <Icon name="arrow_downward" size={18} className="text-tertiary" />
+                      <Icon name="arrow_downward" size={18} className="text-tertiary shrink-0" />
                       <span>Maré Baixa: <strong>{tide.low1}</strong></span>
                     </div>
                     <div className="flex items-center space-x-2 text-secondary">
-                      <Icon name="arrow_upward" size={18} className="text-primary" />
+                      <Icon name="arrow_upward" size={18} className="text-primary shrink-0" />
                       <span>Maré Alta: <strong>{tide.high1}</strong></span>
                     </div>
                   </div>

@@ -35,12 +35,12 @@ export function ComerciosView({
   return (
     <div className="flex flex-col space-y-6 sm:space-y-8 animate-fadeIn">
       {/* Top Banner de Comércios */}
-      <div className="bg-gradient-to-r from-primary via-primary-container to-secondary text-on-primary rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm space-y-4 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-primary via-primary-container to-secondary text-on-primary rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm space-y-4 relative overflow-hidden">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed font-bold bg-black/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full w-fit">
             Guia Comercial &amp; Serviços
           </span>
-          <span className="bg-surface-container-lowest/20 px-3.5 py-1.5 rounded-full font-label-sm text-label-sm w-fit font-medium">
+          <span className="bg-surface-container-lowest/20 px-3.5 py-1.5 rounded-full font-label-sm text-label-sm w-fit font-medium text-xs sm:text-sm">
             {filtered.length} estabelecimentos encontrados
           </span>
         </div>
@@ -56,7 +56,7 @@ export function ComerciosView({
 
         <button
           onClick={onOpenCadastrar}
-          className="mt-2 h-12 px-6 bg-surface text-primary hover:bg-surface-bright rounded-2xl font-label-md text-label-md font-bold flex items-center space-x-2 shadow-sm active:scale-95 transition-all cursor-pointer w-fit"
+          className="mt-2 w-full sm:w-auto h-12 px-6 bg-surface text-primary hover:bg-surface-bright rounded-2xl font-label-md text-label-md font-bold flex items-center justify-center space-x-2 shadow-sm active:scale-95 transition-all cursor-pointer text-sm sm:text-base"
         >
           <Icon name="add_circle" size={20} className="text-primary" />
           <span>Cadastrar Meu Negócio Gratuitamente</span>
@@ -67,27 +67,27 @@ export function ComerciosView({
       <div className="relative">
         <Icon
           name="search"
-          size={22}
-          className="absolute left-4.5 top-1/2 -translate-y-1/2 text-primary"
+          size={21}
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-primary"
         />
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Buscar comércio, peixada, bugueiro, pousada..."
-          className="w-full h-13 sm:h-14 pl-13 pr-4 bg-surface-container-lowest rounded-2xl font-body-md text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm text-base"
+          className="w-full h-12 sm:h-14 pl-12 pr-4 bg-surface-container-lowest rounded-2xl font-body-md text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm text-sm sm:text-base"
         />
       </div>
 
       {/* Categorias (com wrap responsivo) */}
-      <div className="flex overflow-x-auto sm:flex-wrap space-x-2 sm:space-x-2.5 sm:gap-y-2.5 pb-1 no-scrollbar -mx-gutter sm:mx-0 px-gutter sm:px-0">
+      <div className="flex overflow-x-auto sm:flex-wrap space-x-2 sm:space-x-2.5 sm:gap-y-2.5 pb-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
         {CATEGORIES.map((cat) => {
           const active = selectedCat === cat.id;
           return (
             <button
               key={cat.id}
               onClick={() => setSelectedCat(cat.id)}
-              className={`shrink-0 h-10 px-4.5 rounded-full font-label-md text-label-md transition-all cursor-pointer ${
+              className={`shrink-0 h-9 sm:h-10 px-3.5 sm:px-4.5 rounded-full font-label-md text-label-md transition-all cursor-pointer text-xs sm:text-sm ${
                 active
                   ? "bg-primary text-on-primary font-bold shadow-sm"
                   : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
@@ -100,14 +100,14 @@ export function ComerciosView({
       </div>
 
       {/* Distritos */}
-      <div className="flex overflow-x-auto sm:flex-wrap space-x-2 sm:space-x-2.5 sm:gap-y-2.5 pb-1 no-scrollbar -mx-gutter sm:mx-0 px-gutter sm:px-0">
+      <div className="flex overflow-x-auto sm:flex-wrap space-x-2 sm:space-x-2.5 sm:gap-y-2.5 pb-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
         {DISTRICTS.map((dist) => {
           const active = selectedDist === dist.id;
           return (
             <button
               key={dist.id}
               onClick={() => setSelectedDist(dist.id)}
-              className={`shrink-0 px-4 py-2 rounded-xl font-label-md text-label-md transition-all cursor-pointer ${
+              className={`shrink-0 h-8.5 sm:h-9.5 px-3.5 sm:px-4 rounded-xl font-label-md text-label-md transition-all cursor-pointer text-xs sm:text-sm flex items-center justify-center ${
                 active
                   ? "bg-primary-fixed text-on-primary-fixed font-bold shadow-sm"
                   : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container"
@@ -138,7 +138,7 @@ export function ComerciosView({
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4.5 lg:gap-5">
             {filtered.map((item) => (
               <CommerceCard key={item.id} commerce={item} />
             ))}

@@ -117,7 +117,7 @@ export function CadastrarModal({
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
               <div>
                 <label className="block font-label-md text-label-md text-on-surface mb-1 font-semibold">
                   Categoria *
