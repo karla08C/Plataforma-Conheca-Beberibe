@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Conheca Beberibe
 
-## Getting Started
+Plataforma digital responsiva desenvolvida para valorizar o turismo, a preservacao ambiental e os negocios locais do municipio de Beberibe, no litoral leste do Ceara.
 
-First, run the development server:
+O projeto disponibiliza informacoes em tempo real sobre condicoes climaticas e tabua de mares, alem de oferecer um guia interativo com atrativos naturais, sugestoes de roteiros e contato direto com empreendedores da regiao.
 
+Deploy em producao: [conheca-beberibe.vercel.app](https://conheca-beberibe.vercel.app)
+
+---
+
+## Funcionalidades Principais
+
+### Clima e Horario em Tempo Real
+- Consulta em tempo real das condicoes meteorologicas de Beberibe (temperatura, umidade, velocidade do vento e indice de radiacao UV) via Open-Meteo.
+- Relogio sincronizado no fuso horario oficial local (America/Fortaleza, UTC-3).
+
+### Tabua de Mares Dinamica
+- Calculo astronomico automatizado do ciclo semidiurno de mares para a costa de Beberibe.
+- Indicacao dos horarios previstos para mare baixa e mare alta.
+- Calculo da janela ideal de visitacao segura para caminhadas no Labirinto das Falesias de Morro Branco e nas grutas da Praia das Fontes.
+
+### Catalogo Comercial e Servicos Locais
+- Diretorio categorizado de barracas de praia, pousadas, associacoes de rendeiras e bugueiros credenciados.
+- Filtros por categoria comercial e distritos (Morro Branco, Praia das Fontes, Uruau, Sucatinga, Parajuru, Serra do Felix e Centro).
+- Integracao direta de atendimento via WhatsApp oficial de cada prestador de servicos, sem intermediarios.
+
+### Roteiros Sugeridos
+- Itinerarios otimizados para 1, 2 ou 3 dias de viagem, considerando horarios de mare baixa, pontos panoramicos e paradas gastronomicas.
+
+### Cadastro Comunitario de Empreendedores
+- Modal interativo para que moradores e prestadores locais cadastrem seus estabelecimentos ou servicos no catalogo sem custo.
+
+### Conscientizacao e Preservacao Ambiental
+- Secao dedicada orientando sobre a preservacao permanente do Monumento Natural das Falesias de Beberibe, proibicao de degradacao das paredes de areia e descarte consciente de residuos.
+
+---
+
+## Tecnologias Utilizadas
+
+- Framework: Next.js (App Router, Turbopack)
+- Linguagem: TypeScript
+- Biblioteca de Interface: React
+- Estilizacao: Tailwind CSS
+- Icones: Inline SVG responsivo com estilizacao unificada
+- Dados Meteorologicos: Open-Meteo API (endpoint publico, sem necessidade de armazenamento de tokens ou segredos de terceiros)
+- Plataforma de Hospedagem: Vercel
+
+---
+
+## Seguranca e Politica de Credenciais
+
+- Nao ha chaves de API privadas, credenciais ou segredos embutidos no codigo-fonte ou commitados no repositorio.
+- Todas as fontes de dados externas utilizadas sao publicas e nao exigem autenticacao proprietaria.
+- O arquivo `.gitignore` esta configurado para bloquear qualquer arquivo `.env`, credenciais do sistema ou pastas de autenticacao local (`.vercel`, `node_modules`).
+
+---
+
+## Como Executar o Projeto Localmente
+
+### Pre-requisitos
+- Node.js (versao 18.18 ou superior)
+- npm, yarn ou pnpm
+
+### Passo a Passo
+
+1. Clone o repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/karla08C/Conhe-a-Beberibe.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Acesse a pasta do projeto:
+```bash
+cd Conhe-a-Beberibe
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Instale as dependencias:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Abra o navegador no endereco:
+```text
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts Disponiveis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `npm run dev`: Inicia o servidor local de desenvolvimento com Turbopack.
+- `npm run build`: Valida tipagem TypeScript e gera o pacote estatico otimizado de producao.
+- `npm run start`: Executa o servidor de producao localmente apos o build.
+- `npm run lint`: Executa a verificacao de boas praticas com ESLint.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Estrutura do Codigo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+conheca-beberibe/
+├── public/                  # Arquivos estaticos
+├── src/
+│   ├── app/
+│   │   ├── globals.css      # Variaveis de tema e estilos globais
+│   │   ├── layout.tsx       # Estrutura base HTML e fontes
+│   │   └── page.tsx         # Pagina principal e orquestracao de abas
+│   ├── components/
+│   │   ├── AgendaView.tsx          # Aba de agenda cultural e tabua de mares
+│   │   ├── AttractionModal.tsx     # Modal com detalhes dos pontos turisticos
+│   │   ├── BottomNav.tsx           # Barra de navegacao mobile
+│   │   ├── CadastrarModal.tsx      # Modal de cadastro de novos comercios
+│   │   ├── ComerciosView.tsx       # Catalogo expandido de estabelecimentos
+│   │   ├── CommerceCard.tsx        # Cartao de apresentacao comercial
+│   │   ├── EcoBanner.tsx           # Painel de preservacao ambiental
+│   │   ├── Header.tsx              # Cabecalho responsivo com status em tempo real
+│   │   ├── HighlightsCarousel.tsx  # Destaques dos atrativos naturais
+│   │   ├── Icon.tsx                # Renderizador de icones SVG inline
+│   │   ├── ItineraryBanner.tsx     # Bloco de atalho para roteiros
+│   │   ├── NotificationsModal.tsx  # Alertas de clima e janelas de mare
+│   │   ├── RoteirosView.tsx        # Detalhamento de planos de 1 a 3 dias
+│   │   ├── SearchAndFilters.tsx    # Campo de busca e seletores de categoria/distrito
+│   │   └── TideWidget.tsx          # Card superior com clima e mare ao vivo
+│   ├── data/
+│   │   └── beberibeData.ts         # Base de dados locais, atrativos e distritos
+│   ├── hooks/
+│   │   └── useRealtime.ts          # Hook para atualizacao periodica de clima e horario
+│   └── lib/
+│       └── realtime.ts             # Algoritmo de mares e integracao com Open-Meteo
+├── vercel.json              # Configuracoes de deploy na Vercel
+├── tsconfig.json            # Configuracao do TypeScript
+└── package.json             # Dependencias e scripts do projeto
+```
+
+---
+
+## Licenca
+
+Projeto desenvolvido para fins educacionais, turisticos e de promocao comunitaria do municipio de Beberibe - CE.
