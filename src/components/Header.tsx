@@ -3,6 +3,7 @@
 import React from "react";
 import { NavTab } from "./BottomNav";
 import { Icon } from "./Icon";
+import { useRealtime } from "@/hooks/useRealtime";
 
 interface HeaderProps {
   currentTab: NavTab;
@@ -21,6 +22,8 @@ export function Header({
   onNotificationsClick,
   activeTabTitle,
 }: HeaderProps) {
+  const { weather, clock, todayTide } = useRealtime();
+
   const navLinks: { id: NavTab; label: string; icon: string }[] = [
     { id: "explorar", label: "Explorar", icon: "explore" },
     { id: "comercios", label: "Comércios", icon: "storefront" },
@@ -55,7 +58,7 @@ export function Header({
             <div className="hidden xl:flex items-center gap-1.5 text-tertiary font-label-sm text-[11px] sm:text-xs whitespace-nowrap">
               <Icon name="waves" size={13} className="text-tertiary shrink-0" />
               <span className="font-medium">
-                30°C • Maré Baixa 0.4m às 14h30
+                {weather.temperature}°C • {weather.condition} • {clock.timeStr}
               </span>
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Icon } from "./Icon";
+import { useRealtime } from "@/hooks/useRealtime";
 
 interface NotificationsModalProps {
   isOpen: boolean;
@@ -9,21 +10,31 @@ interface NotificationsModalProps {
 }
 
 export function NotificationsModal({ isOpen, onClose }: NotificationsModalProps) {
+  const { weather, clock, todayTide } = useRealtime();
+
   if (!isOpen) return null;
 
   const notifications = [
     {
       id: "notif-1",
       title: "Alerta de Maré Baixa",
-      time: "Há 15 min",
+      time: `Hoje às ${clock.timeStr}`,
       type: "mare",
       icon: "waves",
       color: "text-tertiary bg-tertiary/10",
-      content:
-        "Janela de maré ideal no Labirinto de Morro Branco hoje entre 13:00 e 15:30 (maré baixa de 0.3m). Ótimo momento para caminhadas!",
+      content: `Janela de maré ideal no Labirinto de Morro Branco hoje entre ${todayTide?.ideal || "13:00 e 15:30"} (${todayTide?.low1 || "maré baixa de 0.3m"}). Ótimo momento para caminhadas e fotos!`,
     },
     {
       id: "notif-2",
+      title: "Clima em Tempo Real",
+      time: `Atualizado às ${clock.timeStr}`,
+      type: "clima",
+      icon: weather.iconName,
+      color: "text-primary bg-primary/10",
+      content: `Temperatura atual de ${weather.temperature}°C em Beberibe, condição de ${weather.condition.toLowerCase()} e ${weather.uvDescription}.`,
+    },
+    {
+      id: "notif-3",
       title: "Pôr do Sol nas Dunas",
       time: "Hoje às 17h15",
       type: "clima",
@@ -33,7 +44,7 @@ export function NotificationsModal({ isOpen, onClose }: NotificationsModalProps)
         "Céu limpo previsto para o fim de tarde nas dunas de Morro Branco e Uruaú.",
     },
     {
-      id: "notif-3",
+      id: "notif-4",
       title: "Feira de Rendas e Artesanato",
       time: "Sábado no Centro",
       type: "evento",

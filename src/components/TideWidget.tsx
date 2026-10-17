@@ -2,8 +2,11 @@
 
 import React from "react";
 import { Icon } from "./Icon";
+import { useRealtime } from "@/hooks/useRealtime";
 
 export function TideWidget() {
+  const { weather, clock, todayTide } = useRealtime();
+
   return (
     <section className="w-full bg-gradient-to-br from-tertiary via-tertiary-container to-secondary rounded-2xl sm:rounded-3xl text-on-tertiary shadow-md p-6 sm:p-8 lg:p-10 relative overflow-hidden">
       <div className="absolute -right-8 -bottom-8 w-44 h-44 rounded-full bg-surface-container-lowest/10 blur-2xl pointer-events-none" />
@@ -11,14 +14,18 @@ export function TideWidget() {
       <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8 lg:gap-10">
         {/* Lado Esquerdo: Mensagem e Localidade */}
         <div className="space-y-3 md:max-w-md lg:max-w-xl">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 flex-wrap gap-y-1">
             <Icon name="location_on" size={17} className="text-tertiary-fixed shrink-0" />
-            <span className="font-label-sm text-label-sm uppercase tracking-wider text-tertiary-fixed font-bold">
+            <span className="font-label-sm text-label-sm uppercase tracking-wider text-tertiary-fixed font-bold text-xs sm:text-sm">
               Litoral Leste do Ceará
             </span>
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-tertiary-fixed/60" />
-            <span className="font-label-sm text-label-sm text-tertiary-fixed/90 font-medium">
+            <span className="font-label-sm text-label-sm text-tertiary-fixed font-medium text-xs sm:text-sm">
               Beberibe
+            </span>
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-tertiary-fixed/60" />
+            <span className="font-label-sm text-label-sm text-tertiary-fixed/90 font-medium text-xs sm:text-sm bg-surface-container-lowest/15 px-2.5 py-0.5 rounded-full">
+              {clock.timeStr} em tempo real
             </span>
           </div>
 
@@ -35,13 +42,13 @@ export function TideWidget() {
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 w-full md:w-auto md:min-w-[290px] shrink-0">
           <div className="flex items-center justify-between bg-surface-container-lowest/15 px-4 py-3 rounded-xl backdrop-blur-sm border border-surface-container-lowest/10">
             <div className="flex items-center space-x-2">
-              <Icon name="wb_sunny" size={18} className="text-primary-fixed shrink-0" />
+              <Icon name={weather.iconName} size={18} className="text-primary-fixed shrink-0" />
               <span className="font-label-md text-label-md font-semibold text-surface text-sm sm:text-base">
-                30°C • Ensolarado
+                {weather.temperature}°C • {weather.condition}
               </span>
             </div>
             <span className="text-[12px] text-tertiary-fixed font-medium">
-              UV Alto (Índice 9)
+              {weather.uvDescription}
             </span>
           </div>
 
@@ -55,7 +62,7 @@ export function TideWidget() {
                   Tábua de Marés • Janela Ideal
                 </p>
                 <p className="font-body-sm text-body-sm text-surface font-medium truncate mt-1 text-xs sm:text-sm">
-                  Maré Baixa no Labirinto (0.3m às 13:45)
+                  Maré Baixa no Labirinto ({todayTide?.low1 || "0.3m às 13:45"})
                 </p>
               </div>
             </div>

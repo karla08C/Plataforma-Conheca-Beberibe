@@ -3,32 +3,31 @@
 import React, { useState } from "react";
 import { LOCAL_EVENTS } from "@/data/beberibeData";
 import { Icon } from "./Icon";
+import { useRealtime } from "@/hooks/useRealtime";
 
 export function AgendaView() {
   const [filterType, setFilterType] = useState<"todos" | "eventos" | "mares">("todos");
-
-  const tidesSchedule = [
-    { day: "Hoje", low1: "0.4m às 14h30", high1: "2.8m às 08h15", low2: "0.5m às 02h50", ideal: "13:00 às 15:30" },
-    { day: "Amanhã", low1: "0.3m às 15h15", high1: "2.9m às 09h00", low2: "0.4m às 03h35", ideal: "13:45 às 16:15" },
-    { day: "Depois de amanhã", low1: "0.3m às 16h00", high1: "2.9m às 09h45", low2: "0.3m às 04h20", ideal: "14:30 às 17:00" },
-    { day: "Quinta-feira", low1: "0.2m às 16h40", high1: "3.0m às 10h30", low2: "0.3m às 05h00", ideal: "15:00 às 17:30" },
-  ];
+  const { tides, clock, weather } = useRealtime();
 
   return (
     <div className="flex flex-col space-y-6 sm:space-y-8 animate-fadeIn select-none">
       {/* Banner da Agenda */}
       <div className="bg-gradient-to-br from-tertiary via-tertiary-container to-secondary text-on-tertiary rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm space-y-3">
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 flex-wrap gap-y-1">
           <Icon name="calendar_month" size={20} className="text-tertiary-fixed" />
           <span className="font-label-sm text-label-sm uppercase tracking-wider text-tertiary-fixed font-bold text-xs sm:text-sm">
             Agenda &amp; Marés
+          </span>
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-tertiary-fixed/60" />
+          <span className="bg-surface-container-lowest/20 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm text-xs sm:text-sm">
+            {clock.timeStr} • {weather.temperature}°C {weather.condition}
           </span>
         </div>
         <h2 className="font-headline-md text-headline-md font-bold leading-tight text-white text-2xl sm:text-3xl lg:text-4xl">
           O que fazer em Beberibe
         </h2>
         <p className="font-body-sm text-body-sm text-tertiary-fixed-dim text-sm sm:text-base max-w-2xl leading-relaxed">
-          Fique por dentro de eventos culturais, feiras de artesanato de rendas e a previsão oficial de marés para planejar suas visitas às falésias e lagoas.
+          Fique por dentro de eventos culturais, feiras de artesanato de rendas e a previsão oficial de marés calculada para planejar suas visitas às falésias e lagoas.
         </p>
       </div>
 
@@ -79,15 +78,27 @@ export function AgendaView() {
             </div>
 
             <div className="space-y-3">
-              {tidesSchedule.map((tide, i) => (
+              {tides.map((tide, i) => (
                 <div
                   key={i}
-                  className="bg-surface-container-lowest rounded-2xl p-4 sm:p-5 border border-outline-variant/30 shadow-sm flex flex-col space-y-2.5 hover:shadow-md transition-shadow"
+                  className={`bg-surface-container-lowest rounded-2xl p-4 sm:p-5 border shadow-sm flex flex-col space-y-2.5 hover:shadow-md transition-shadow ${
+                    tide.isToday ? "border-tertiary/50 ring-2 ring-tertiary/20" : "border-outline-variant/30"
+                  }`}
                 >
                   <div className="flex items-center justify-between gap-2 flex-wrap">
-                    <span className="font-headline-sm text-headline-sm text-on-surface font-bold text-base sm:text-lg">
-                      {tide.day}
-                    </span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-headline-sm text-headline-sm text-on-surface font-bold text-base sm:text-lg">
+                        {tide.day}
+                      </span>
+                      <span className="text-xs text-secondary font-medium">
+                        ({tide.dateStr})
+                      </span>
+                      {tide.isToday && (
+                        <span className="bg-tertiary text-on-tertiary px-2 py-0.5 rounded-full text-[11px] font-bold">
+                          Hoje • {clock.timeStr}
+                        </span>
+                      )}
+                    </div>
                     <span className="bg-tertiary/10 text-tertiary px-2.5 sm:px-3 py-1 rounded-full font-label-sm text-label-sm font-semibold text-xs sm:text-sm">
                       Janela Ideal: {tide.ideal}
                     </span>
