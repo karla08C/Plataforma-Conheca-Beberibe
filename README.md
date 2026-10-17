@@ -47,13 +47,6 @@ Deploy em producao: [conheca-beberibe.vercel.app](https://conheca-beberibe.verce
 
 ---
 
-## Seguranca e Politica de Credenciais
-
-- Nao ha chaves de API privadas, credenciais ou segredos embutidos no codigo-fonte ou commitados no repositorio.
-- Todas as fontes de dados externas utilizadas sao publicas e nao exigem autenticacao proprietaria.
-- O arquivo `.gitignore` esta configurado para bloquear qualquer arquivo `.env`, credenciais do sistema ou pastas de autenticacao local (`.vercel`, `node_modules`).
-
----
 
 ## Como Executar o Projeto Localmente
 
