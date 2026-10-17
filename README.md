@@ -65,12 +65,12 @@ Deploy em producao: [conheca-beberibe.vercel.app](https://conheca-beberibe.verce
 
 1. Clone o repositorio:
 ```bash
-git clone https://github.com/karla08C/Conhe-a-Beberibe.git
+git clone https://github.com/karla08C/Plataforma-Conheca-Beberibe.git
 ```
 
 2. Acesse a pasta do projeto:
 ```bash
-cd Conhe-a-Beberibe
+cd Plataforma-Conheca-Beberibe
 ```
 
 3. Instale as dependencias:
